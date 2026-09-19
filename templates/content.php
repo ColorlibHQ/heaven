@@ -38,7 +38,7 @@
             if( heaven_opt( 'heaven_blog_meta' ) == 1 ) {
 	            ?>
                 <ul class="blog-info-link">
-                    <li><i class="fa fa-tags"></i> <?php echo heaven_featured_post_cat(); ?></li>
+                    <li><i class="fa-solid fa-tags"></i> <?php echo heaven_featured_post_cat(); ?></li>
                     <li><?php echo heaven_posted_comments(); ?></li>
                 </ul>
 	            <?php

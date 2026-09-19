@@ -175,7 +175,7 @@ class Heaven_Service_About extends Widget_Base {
                                 <div class="intro_video_icon">
                                     <a id="play-video_1" class="video-play-button popup-youtube"
                                         href="<?php echo esc_url( $vid_url )?>">
-                                        <i class="fa fa-caret-right"></i>
+                                        <i class="fa-solid fa-caret-right"></i>
                                     </a>
                                 </div>
                             </div>
