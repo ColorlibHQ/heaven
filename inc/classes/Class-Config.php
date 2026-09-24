@@ -251,13 +251,6 @@
 						'in_footer' 	=> true
 					),
 					array(
-						'handler'		=> 'heaven-wp-theme-instagram-feed-js',
-						'file' 			=> $jsPath.'jquery.instagramFeed.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
-						'in_footer' 	=> true
-					),
-					array(
 						'handler'		=> 'heaven-wp-theme-slick-min-js',
 						'file' 			=> $jsPath.'slick.min.js',
 						'dependency' 	=> array( 'jquery' ),
@@ -267,13 +260,6 @@
 					array(
 						'handler'		=> 'heaven-wp-theme-gijgo-js',
 						'file' 			=> $jsPath.'gijgo.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-jquery-nice-select-js',
-						'file' 			=> $jsPath.'jquery.nice-select.min.js',
 						'dependency' 	=> array( 'jquery' ),
 						'version' 		=> '1.0',
 						'in_footer' 	=> true
@@ -301,10 +287,17 @@
 					),
 
 					array(
+						'handler'		=> 'heaven-ui-js',
+						'file' 			=> $jsPath.'colorlib-ui.js',
+						'dependency' 	=> array(),
+						'version' 		=> '2.1.1',
+						'in_footer' 	=> true
+					),
+					array(
 						'handler'		=> 'heaven-wp-theme-heaven-custom',
 						'file' 			=> $jsPath.'custom.js',
-						'dependency' 	=> array( 'jquery', 'masonry' ),
-						'version' 		=> $this->heaven_version,
+						'dependency' 	=> array( 'jquery', 'masonry', 'heaven-ui-js' ),
+						'version' 		=> $this->heaven_version . '-s1',
 						'in_footer' 	=> true
 					),
 
