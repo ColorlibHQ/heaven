@@ -183,7 +183,7 @@
 						'handler'		=> 'heaven-wp-theme-flaticon',
 						'file' 			=> $cssPath.'flaticon.css',
 						'dependency' 	=> array(),
-						'version' 		=> '1.0',
+						'version' 		=> '1.0-s3',
 					),
 					array(
 						'handler'		=> 'heaven-wp-theme-magnific-popup-css',
@@ -213,7 +213,7 @@
 						'handler'		=> 'heaven-wp-theme-default-css',
 						'file' 			=> $cssPath.'default.css',
 						'dependency' 	=> array(),
-						'version' 		=> '1.0',
+						'version' 		=> '1.0-s3',
 					),
 					array(
 						'handler'		=> 'heaven-wp-theme-style-css',
