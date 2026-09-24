@@ -198,12 +198,6 @@
 						'version' 		=> '1.0',
 					),
 					array(
-						'handler'		=> 'heaven-wp-theme-gijgo-css',
-						'file' 			=> $cssPath.'gijgo.min.css',
-						'dependency' 	=> array(),
-						'version' 		=> '1.0',
-					),
-					array(
 						'handler'		=> 'heaven-wp-theme-nice-select-css',
 						'file' 			=> $cssPath.'nice-select.css',
 						'dependency' 	=> array(),
@@ -213,13 +207,13 @@
 						'handler'		=> 'heaven-wp-theme-default-css',
 						'file' 			=> $cssPath.'default.css',
 						'dependency' 	=> array(),
-						'version' 		=> '1.0-s3',
+						'version' 		=> '1.0',
 					),
 					array(
 						'handler'		=> 'heaven-wp-theme-style-css',
 						'file' 			=> $cssPath.'style.css',
 						'dependency' 	=> array(),
-						'version' 		=> '1.0',
+						'version' 		=> '1.0-s3',
 					),
 					
 					array(
