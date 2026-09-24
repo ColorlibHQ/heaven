@@ -235,12 +235,12 @@ class Heaven_Projects extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            $(document).ready(function() {
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
                 // project_slider js code
-                var project = $('.project_slider');
-                if (project.length) {
-                project.owlCarousel({
+                UI.owl('.project_slider', {
                     items: 1,
                     loop: true,
                     dots: false,
@@ -250,25 +250,28 @@ class Heaven_Projects extends Widget_Base {
                     nav: true,
                     smartSpeed: 2000,
                     navText: [
-                    '<i class="flaticon-left-arrow"></i>',
-                    '<i class="flaticon-right-arrow"></i>'
-
+                        '<i class="flaticon-left-arrow"></i>',
+                        '<i class="flaticon-right-arrow"></i>'
                     ],
                     responsive: {
-                    0: {
-                        nav: false,
-                    },
-                    768: {
-                        nav: true,
-                    },
-                    992: {
-                        nav: true,
-                    }
+                        0: {
+                            nav: false,
+                        },
+                        768: {
+                            nav: true,
+                        },
+                        992: {
+                            nav: true,
+                        }
                     }
                 });
-                }
-            });
-        })(jQuery);
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }

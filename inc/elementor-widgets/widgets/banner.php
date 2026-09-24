@@ -238,28 +238,30 @@ class Heaven_Banner extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            $(document).ready(function() {
-                var banner_slides = $('.banner_text');
-                if (banner_slides.length) {
-                    $('.banner_text').slick({
-                        vertical:true,
-                        verticalSwiping:true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        autoplay: true,
-                        arrows: true,
-                        autoplaySpeed: 3000,
-                        pauseOnHover: true,
-                        pauseOnHover: true,
-                        touchMove: true,
-                        verticalSwiping: true,
-                        prevArrow: $('.prev'),
-                        nextArrow: $('.next'),
-                    });
-                }
-            });
-        })(jQuery);
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
+                UI.slick('.banner_text', {
+                    vertical: true,
+                    verticalSwiping: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    arrows: true,
+                    autoplaySpeed: 3000,
+                    pauseOnHover: true,
+                    touchMove: true,
+                    prevArrow: '.prev',
+                    nextArrow: '.next'
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }

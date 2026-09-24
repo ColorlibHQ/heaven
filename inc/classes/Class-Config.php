@@ -232,72 +232,23 @@
 					array(
 						'handler'		=> 'heaven-wp-theme-bootstrap',
 						'file' 			=> $jsPath.'bootstrap.min.js',
-						'dependency' 	=> array( 'jquery' ),
+						'dependency' 	=> array(),
 						'version' 		=> '5.3.8-4',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-magnific-popup-js',
-						'file' 			=> $jsPath.'jquery.magnific-popup.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.1.0',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-swiper-min-js',
-						'file' 			=> $jsPath.'swiper.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '4.3.3',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-slick-min-js',
-						'file' 			=> $jsPath.'slick.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-gijgo-js',
-						'file' 			=> $jsPath.'gijgo.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-owl-carousel-js',
-						'file' 			=> $jsPath.'owl.carousel.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-gmap3-min-js',
-						'file' 			=> $jsPath.'gmap3.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
-						'in_footer' 	=> true
-					),
-					array(
-						'handler'		=> 'heaven-wp-theme-jquery-ajaxchimp-js',
-						'file' 			=> $jsPath.'jquery.ajaxchimp.min.js',
-						'dependency' 	=> array( 'jquery' ),
-						'version' 		=> '1.0',
 						'in_footer' 	=> true
 					),
 
 					array(
 						'handler'		=> 'heaven-ui-js',
-						'file' 			=> $jsPath.'colorlib-ui.js',
+						'file' 			=> $jsPath . ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? 'colorlib-ui.js' : 'colorlib-ui.min.js' ),
 						'dependency' 	=> array(),
-						'version' 		=> '2.1.1',
+						'version' 		=> '3.0.0',
 						'in_footer' 	=> true
 					),
 					array(
 						'handler'		=> 'heaven-wp-theme-heaven-custom',
 						'file' 			=> $jsPath.'custom.js',
-						'dependency' 	=> array( 'jquery', 'masonry', 'heaven-ui-js' ),
-						'version' 		=> $this->heaven_version . '-s1',
+						'dependency' 	=> array( 'masonry', 'heaven-ui-js' ),
+						'version' 		=> $this->heaven_version . '-s2',
 						'in_footer' 	=> true
 					),
 

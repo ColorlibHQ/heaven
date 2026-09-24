@@ -269,12 +269,12 @@ class Heaven_Speciality extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            $(document).ready(function() {
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
                 // blog_slider js code
-                var single_page = $('.single_page_special_item');
-                if (single_page.length) {
-                    single_page.owlCarousel({
+                UI.owl('.single_page_special_item', {
                     items: 4,
                     loop: true,
                     dots: false,
@@ -286,33 +286,36 @@ class Heaven_Speciality extends Widget_Base {
                     navText: [
                         '<i class="flaticon-left-arrow"></i>',
                         '<i class="flaticon-right-arrow"></i>'
-
                     ],
                     responsive: {
                         0: {
-                        nav: false,
-                        items: 1
+                            nav: false,
+                            items: 1
                         },
-                        576:{
-                        items: 1
+                        576: {
+                            items: 1
                         },
                         768: {
-                        nav: true,
-                        items: 2
+                            nav: true,
+                            items: 2
                         },
                         992: {
-                        nav: true,
-                        items: 3
+                            nav: true,
+                            items: 3
                         },
                         1200: {
-                        nav: true,
-                        items: 3
+                            nav: true,
+                            items: 3
                         }
                     }
-                    });
-                }
-            });
-        })(jQuery);
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }

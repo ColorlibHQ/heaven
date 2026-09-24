@@ -10,7 +10,7 @@
 add_action( 'wp_enqueue_scripts', 'heaven_sl_enqueue_scripts' );
 function heaven_sl_enqueue_scripts() {
 
-	wp_enqueue_script( 'heaven-post-likes', HEAVEN_DIR_JS_URI . 'post-likes.js', array( 'jquery' ), '0.5', false );
+	wp_enqueue_script( 'heaven-post-likes', HEAVEN_DIR_JS_URI . 'post-likes.js', array( 'heaven-ui-js' ), '0.5-s2', true );
 
 	wp_localize_script( 'heaven-post-likes', 'simpleLikes', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),

@@ -251,12 +251,12 @@ class Heaven_Services extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            $(document).ready(function() {
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
                 // service_slider js code
-                var service = $('.service_slider');
-                if (service.length) {
-                service.owlCarousel({
+                UI.owl('.service_slider', {
                     items: 1,
                     loop: true,
                     dots: false,
@@ -266,24 +266,28 @@ class Heaven_Services extends Widget_Base {
                     nav: true,
                     smartSpeed: 2000,
                     navText: [
-                    '<i class="ti-angle-left"></i>',
-                    '<i class="ti-angle-right"></i>'
+                        '<i class="ti-angle-left"></i>',
+                        '<i class="ti-angle-right"></i>'
                     ],
                     responsive: {
-                    0: {
-                        nav: false,
-                    },
-                    768: {
-                        nav: true,
-                    },
-                    992: {
-                        nav: true,
-                    }
+                        0: {
+                            nav: false,
+                        },
+                        768: {
+                            nav: true,
+                        },
+                        992: {
+                            nav: true,
+                        }
                     }
                 });
-                }
-            });
-        })(jQuery);
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }

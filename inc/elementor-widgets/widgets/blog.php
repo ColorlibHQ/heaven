@@ -290,12 +290,12 @@ class Heaven_Blog extends Widget_Base {
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
         ?>
         <script>
-        ( function( $ ){
-            $(document).ready(function() {
+        (function () {
+            function run() {
+                var UI = window.ColorlibUI;
+                if (!UI) return;
                 // blog_slider js code
-                var single_page = $('.single_page_special_item');
-                if (single_page.length) {
-                single_page.owlCarousel({
+                UI.owl('.single_page_special_item', {
                     items: 4,
                     loop: true,
                     dots: false,
@@ -305,59 +305,64 @@ class Heaven_Blog extends Widget_Base {
                     nav: true,
                     smartSpeed: 2000,
                     navText: [
-                    '<i class="flaticon-left-arrow"></i>',
-                    '<i class="flaticon-right-arrow"></i>'
-
+                        '<i class="flaticon-left-arrow"></i>',
+                        '<i class="flaticon-right-arrow"></i>'
                     ],
                     responsive: {
-                    0: {
-                        nav: false,
-                        items: 1
-                    },
-                    576:{
-                        items: 1
-                    },
-                    768: {
-                        nav: true,
-                        items: 2
-                    },
-                    992: {
-                        nav: true,
-                        items: 3
-                    },
-                    1200: {
-                        nav: true,
-                        items: 3
-                    }
+                        0: {
+                            nav: false,
+                            items: 1
+                        },
+                        576: {
+                            items: 1
+                        },
+                        768: {
+                            nav: true,
+                            items: 2
+                        },
+                        992: {
+                            nav: true,
+                            items: 3
+                        },
+                        1200: {
+                            nav: true,
+                            items: 3
+                        }
                     }
                 });
+
+                // The blog post slider shows "current/total".
+                function showCount(e) {
+                    var carousel = e.detail.relatedTarget;
+                    UI.toElements('.slider-counter').forEach(function (counter) {
+                        counter.textContent = carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length;
+                    });
                 }
-
-
-                $('.blog_post_slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
-                if (!e.namespace) {
-                    return;
-                }
-                var carousel = e.relatedTarget;
-                $('.slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
-                }).owlCarousel({
-                items: 1,
-                loop: true,
-                dots: false,
-                autoplay: true,
-                autoplayHoverPause: true,
-                autoplayTimeout: 5000,
-                nav: true,
-                smartSpeed: 2000,
-                navText: [
-                    '',
-                    'NEXT'
-
-
-                ]
+                UI.toElements('.blog_post_slider').forEach(function (el) {
+                    el.addEventListener('initialized.owl.carousel', showCount);
+                    el.addEventListener('changed.owl.carousel', showCount);
                 });
-            });
-        })(jQuery);
+                UI.owl('.blog_post_slider', {
+                    items: 1,
+                    loop: true,
+                    dots: false,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    autoplayTimeout: 5000,
+                    nav: true,
+                    smartSpeed: 2000,
+                    navText: [
+                        '',
+                        'NEXT'
+                    ]
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
         </script>
         <?php 
         }
